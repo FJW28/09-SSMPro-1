@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页面</title>
+    <style>
+        #title{
+            position: relative;
+            left: 500px;
+        }
+        #title1{
+            position: relative;
+            left: 500px;
+        }
+        #content{
+            position: relative;
+            left: 500px;
+        }
+        #content1{
+            position: relative;
+            left: 500px;
+        }
+        #bdate{
+            position: relative;
+            left: 500px;
+        }
+        #bdate1{
+            position: relative;
+            left: 500px;
+        }
+        #bthematic{
+            position: relative;
+            left: 500px;
+        }
+        #bthematic1{
+            position: relative;
+            left: 500px;
+        }
+        #author{
+            position: relative;
+            left: 500px;
+        }
+        #author1{
+            position: relative;
+            left: 500px;
+        }
+        h1{
+            position: relative;
+            left: 500px;
+        }
+    </style>
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url:"http://localhost:8080/07-Blog/queryDatail2",
+                dataType:"json",
+                success:function (result) {
+                   /* console.log(result);*/
+                    if(result!=null){
+                        for (var i = 0; i <result.blogList.length ; i++) {
+                            $("#title").text(result.blogList[i].btitle);
+                            $("#content").text(result.blogList[i].bcontent);
+                            $("#bdate").text(result.blogList[i].bdate);
+                            $("#bthematic").text(result.blogList[i].bthematic);
+                        }
+
+                        $("#author").text(result.name);
+                    }else if (result.mark==0) {
+                       alert("00")
+                    }
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>动态详情</h1>
+
+    <div id="div1">
+        <span id="title1">标题:</span><textarea id="title" cols="30px" rows="5px"></textarea>
+    </div>
+    <div id="div2">
+        <span id="content1">内容:</span><textarea id="content" cols="100px" rows="15px"></textarea>
+    </div>
+    <div id="div3">
+        <span id="bdate1">发布时间:</span><textarea id="bdate" cols="80px" rows="3px"></textarea>
+    </div>
+    <div id="div4">
+        <span id="bthematic1">主题:</span><textarea id="bthematic" cols="15px" rows="3px"></textarea>
+    </div>
+    <div id="div5">
+        <span id="author1">作者:</span><textarea id="author" cols="15px" rows="3px"></textarea>
+    </div>
+</body>
+
+</html>

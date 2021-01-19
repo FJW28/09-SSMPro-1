@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布动态</title>
+    <style>
+        form{
+           position: relative;
+            left: 500px;
+        }
+        #display1{
+            font-size: 20px;
+            border: 1px solid red;
+            position: relative;
+            left: 100px;
+        }
+        h1{
+            position: relative;
+            left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1 >发布动态</h1>
+       <form action="http://localhost:8080/07-Blog/dispalyBlog" method="post" >
+           <p>标题</p><textarea  id="title" name="btitle" cols="30px" rows="2px"></textarea><br>
+           <p>内容</p><textarea  id="content" name="bcontent" cols="100px" rows="20px"></textarea><br>
+           <!--<p>时间</p><input type="date" name="bdate"><br>-->
+           <p>主题</p><input type="checkbox" name="bthematic" value="汽车">汽车<input type="checkbox" name="bthematic" value="美食">美食
+           <input type="checkbox" name="bthematic" value="游戏">游戏<br>
+            <button id="display1">发表</button>
+
+       </form>
+
+</body>
+</html>

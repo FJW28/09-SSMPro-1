@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客主页面</title>
+    <style>
+        #title{
+            width: 100%;
+            height: 50px;
+            border: 1px solid red;
+
+        }
+        #text1{
+            position: relative;
+            left: 500px;
+        }
+        #daohanglan{
+            border: 1px solid black;
+            width: 150px;
+            height: 800px;
+        }
+        #welcome{
+            position: relative;
+            left: 600px;
+        }
+    </style>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+               url:"http://localhost:8080/07-Blog/findUsername",
+                pos:"post",
+                dataType:"json",
+                success:function (result) {
+                    if(result!=null){
+                        console.log(result)
+                        $("#welcome").text("用户名:"+result.username);
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div id="title">
+        <strong id="text1">天亮博客系统</strong>
+        <span id="welcome"></span>
+    </div>
+    <div id="daohanglan">
+        <div id="son1">
+            <ul id="ul1" >
+                <li onclick="fun1()">操作一
+                    <ul style="display: none"  id="ul2">
+                        <li id="li1" >发布动态</li>
+                        <li id="li2" >查看动态</li>
+                    </ul>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    function fun1() {
+        $("#daohanglan #son1 ul li ul").eq(0).slideToggle("slow");
+
+    }
+    $("#daohanglan #son1 ul li ul li").click(function (e){
+        e.stopPropagation();
+    });
+
+    $("#li1").click(function () {
+        window.location.href="display.html"
+    });
+
+    $("#li2").click(function () {
+        window.location.href="queryTable.html"
+    })
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<input type="text" id="t1" name="name" >
+<input type="text" id="t2" name="password" >
+</body>
+<script src="js/jquery-3.5.1.min.js"></script>
+
+<script>
+    $("#t2").blur(function () {
+        datajson={};
+        datajson.name=$("#t1").val();
+        datajson.password=$("#t2").val();
+        $.ajax({
+            url: "http://localhost:8080/09-SSMPro-1/work3",
+            type: "post",
+            data: datajson, //发送json格式字符串
+            /*contentType: "application/json",*/
+            dataType: "json"
+
+        });
+    });
+</script>
+</html>
